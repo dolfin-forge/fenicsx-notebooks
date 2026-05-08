@@ -16,7 +16,8 @@ jupyter lab
 
 | Notebook | Description |
 |---|---|
-| `poisson.ipynb` | Poisson equation on unit square, P1 elements, exact solution verification |
+| `poisson.ipynb` | Poisson equation, P1 elements, exact solution verification |
+| `stokes.ipynb` | Stokes lid-driven cavity, Taylor-Hood P2/P1 elements |
 
 ## Requirements
 
