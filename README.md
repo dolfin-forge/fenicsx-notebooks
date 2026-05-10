@@ -18,6 +18,11 @@ jupyter lab
 |---|---|
 | `poisson.ipynb` | Poisson equation, P1 elements, exact solution verification |
 | `stokes.ipynb` | Stokes lid-driven cavity, Taylor-Hood P2/P1 elements |
+| `navier-stokes.ipynb` | Navier-Stokes lid-driven cavity, backward Euler, Taylor-Hood P2/P1, Re=100 |
+
+## Notes on the Navier-Stokes solver
+
+The time loop uses MUMPS for sparse LU factorization. On Apple Silicon (M-series Macs), MUMPS uses OpenMP threading which can cause non-deterministic floating-point results. The notebook sets `OMP_NUM_THREADS=1` and raises the MUMPS pivot threshold `CNTL(1)=0.1` to ensure stable results. See commit `1686ac2` for the full diagnosis.
 
 ## Requirements
 
