@@ -1,34 +1,18 @@
-# FEniCSx Notebooks
+# FEniCSx Notebooks (archived)
 
-Teaching and demo notebooks for FEniCSx 0.10.0.
+> **Superseded.** These legacy FEniCSx 0.10 notebooks have been replaced by
+> [johanhoffman/DD2365_FEniCSx](https://github.com/johanhoffman/DD2365_FEniCSx),
+> which targets FEniCSx 0.11 and is actively maintained. Use that repo instead.
+
+---
 
 Part of the [dolfin-forge](https://github.com/dolfin-forge) project.
 
-## Setup
+## Notes
 
-```bash
-conda create -n fenicsx -c conda-forge fenics-dolfinx mpich pyvista matplotlib jupyter
-conda activate fenicsx
-jupyter lab
-```
-
-## Notebooks
-
-| Notebook | Description |
-|---|---|
-| `poisson.ipynb` | Poisson equation, P1 elements, exact solution verification |
-| `stokes.ipynb` | Stokes lid-driven cavity, Taylor-Hood P2/P1 elements |
-| `navier-stokes.ipynb` | Navier-Stokes lid-driven cavity, backward Euler, Taylor-Hood P2/P1, Re=100 |
-
-## Notes on the Navier-Stokes solver
-
-The time loop uses MUMPS for sparse LU factorization. On Apple Silicon (M-series Macs), MUMPS uses OpenMP threading which can cause non-deterministic floating-point results. The notebook sets `OMP_NUM_THREADS=1` and raises the MUMPS pivot threshold `CNTL(1)=0.1` to ensure stable results. See commit `1686ac2` for the full diagnosis.
-
-## Requirements
-
-- FEniCSx 0.10.0
-- Python 3.14
-- conda / Miniforge
+The MUMPS CNTL(1)=0.1 workaround for Apple Silicon (non-deterministic factorization)
+was introduced in commit `1686ac2`. It is carried forward as the `bootstrap` canonical
+block in [DD2365_FEniCSx](https://github.com/johanhoffman/DD2365_FEniCSx).
 
 ## License
 
